@@ -9,7 +9,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-const PORT = process.env.PORT || 3001; // Changed from 3000 to 3001
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const BASE_PORT = process.env.PORT || 3000;
+
+function startServer(port) {
+    const server = app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    }).on('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+            console.log(`Port ${port} is in use, trying ${port + 1}...`);
+            startServer(port + 1); // Try the next port
+        } else {
+            console.error('Server error:', err);
+        }
+    });
+}
+
+// Start the server with the base port
+startServer(BASE_PORT);
