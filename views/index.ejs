@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Weather | WeatherNow</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="<%= theme || 'light' %>">
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/images/sun.png" alt="Logo" class="logo-icon"> WeatherNow
+            </div>
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn<%= currentRoute === '/' ? ' active' : '' %>">Home</a>
+                <a href="/hourly" class="nav-btn<%= currentRoute === '/hourly' ? ' active' : '' %>">Hourly</a>
+                <a href="#radar" class="nav-btn">Radar</a>
+                <a href="#alerts" class="nav-btn">Alerts</a>
+                <a href="#about" class="nav-btn">About</a>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <section class="weather-hero">
+            <h1>Boston, MA Weather Forecast</h1>
+            <p class="subtitle">Accurate and up-to-date weather information for your area</p>
+        </section>
+
+        <section class="forecast-section">
+            <h2>Weekly Forecast</h2>
+            <div class="forecast-weekly">
+                <% forecast.forEach((day, index) => { %>
+                    <div class="forecast-card<%= index === currentDate.getDay() ? ' today' : '' %>" data-date="<%= day.date %>">
+                        <div class="card-inner">
+                            <div class="day"><%= day.day %></div>
+                            <div class="date"><%= day.date %></div>
+                            <img src="<%= day.icon %>" class="weather-icon" alt="<%= day.description %>">
+                            <div class="temp"><%= day.temperature %>°F</div>
+                            <div class="desc"><%= day.description %></div>
+                            <div class="details hidden">
+                                <p>Humidity: 65%</p>
+                                <p>Wind: 8 mph N</p>
+                                <p>Pressure: 1013 mb</p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <section class="weather-conditions">
+            <h2>Current Conditions</h2>
+            <div class="conditions-grid">
+                <div class="condition-card">
+                    <h3>Temperature</h3>
+                    <p>62°F</p>
+                    <p class="subtext">Feels like 60°F</p>
+                </div>
+                <div class="condition-card">
+                    <h3>Humidity</h3>
+                    <p>65%</p>
+                    <p class="subtext">Dew Point: 48°F</p>
+                </div>
+                <div class="condition-card">
+                    <h3>Wind</h3>
+                    <p>8 mph N</p>
+                    <p class="subtext">Gusts up to 15 mph</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="weather-radar" id="radar">
+            <h2>Live Weather Radar</h2>
+            <div class="radar-container">
+                <div class="radar-frame">
+                    <img src="https://radar.weather.gov/ridge/standard/CONUS_loop.gif" alt="Weather Radar" class="radar-image">
+                </div>
+                <div class="radar-controls">
+                    <button class="control-btn zoom-in" aria-label="Zoom in">+</button>
+                    <button class="control-btn zoom-out" aria-label="Zoom out">-</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="additional-info" id="alerts">
+            <div class="info-card">
+                <h3>Weather Alerts</h3>
+                <p>No active alerts for Boston, MA at this time.</p>
+                <p class="subtext">Last checked: <%= new Date().toLocaleTimeString() %></p>
+            </div>
+            <div class="info-card">
+                <h3>Sunrise/Sunset</h3>
+                <p>Sunrise: 6:45 AM</p>
+                <p>Sunset: 7:20 PM</p>
+                <p class="subtext">Daylight: 12h 35m</p>
+            </div>
+            <div class="info-card">
+                <h3>Air Quality</h3>
+                <p>AQI: 42 (Good)</p>
+                <p class="subtext">PM2.5: 10 µg/m³</p>
+            </div>
+            <button class="emergency-button">Emergency Services</button>
+        </section>
+
+        <section class="about-section" id="about">
+            <h2>About WeatherNow</h2>
+            <p>WeatherNow provides reliable, real-time weather data for cities across the globe. Our mission is to keep you informed and prepared with accurate forecasts and detailed meteorological insights.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 WeatherNow. All rights reserved.</p>
+            <p>Last updated: <span id="current-time"></span></p>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">📷</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/client.js"></script>
+</body>
+</html>
