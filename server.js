@@ -10,9 +10,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 const BASE_PORT = process.env.PORT || 3000;
+let server;
 
 function startServer(port) {
-    const server = app.listen(port, () => {
+    server = app.listen(port, () => {
         console.log(`Server running on port ${port}`);
     }).on('error', (err) => {
         if (err.code === 'EADDRINUSE') {
@@ -26,3 +27,16 @@ function startServer(port) {
 
 // Start the server with the base port
 startServer(BASE_PORT);
+
+// Handle Ctrl + C (SIGINT) to close the server gracefully
+process.on('SIGINT', () => {
+    console.log('\nReceived SIGINT. Closing server...');
+    if (server) {
+        server.close(() => {
+            console.log('Server closed successfully.');
+            process.exit(0); // Exit with success code
+        });
+    } else {
+        process.exit(0); // Exit if server wasn't started yet
+    }
+});
