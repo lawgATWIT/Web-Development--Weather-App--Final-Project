@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const forecastData = [
-    { date: "04/01/2024", day: "Sunday", temperature: 57, description: "Storm", icon: "/images/storm.png" },
-    { date: "04/02/2024", day: "Monday", temperature: 62, description: "Cloud", icon: "/images/cloud.png" },
-    { date: "04/03/2024", day: "Tuesday", temperature: 60, description: "Sun", icon: "/images/sun.png" },
-    { date: "04/04/2024", day: "Wednesday", temperature: 58, description: "Rain", icon: "/images/rain.png" },
-    { date: "04/05/2024", day: "Thursday", temperature: 59, description: "Storm", icon: "/images/storm.png" },
-    { date: "04/06/2024", day: "Friday", temperature: 61, description: "Sun", icon: "/images/sun.png" },
-    { date: "04/07/2024", day: "Saturday", temperature: 63, description: "Cloud", icon: "/images/cloud.png" }
+    { date: "03/30/2025", day: "Sunday", temperature: 57, description: "Storm", icon: "/images/storm.png" },
+    { date: "03/31/2025", day: "Monday", temperature: 62, description: "Cloud", icon: "/images/cloud.png" },
+    { date: "04/01/2025", day: "Tuesday", temperature: 60, description: "Sun", icon: "/images/sun.png" },
+    { date: "04/02/2025", day: "Wednesday", temperature: 58, description: "Rain", icon: "/images/rain.png" },
+    { date: "04/03/2025", day: "Thursday", temperature: 59, description: "Storm", icon: "/images/storm.png" },
+    { date: "04/04/2025", day: "Friday", temperature: 61, description: "Sun", icon: "/images/sun.png" },
+    { date: "04/05/2025", day: "Saturday", temperature: 63, description: "Cloud", icon: "/images/cloud.png" }
 ];
 
 const hourlyData = Array.from({ length: 24 }, (_, i) => ({
@@ -18,7 +18,7 @@ const hourlyData = Array.from({ length: 24 }, (_, i) => ({
 }));
 
 router.get('/', (req, res) => {
-    res.render('index', { 
+    res.render('index', {
         forecast: forecastData,
         currentDate: new Date(),
         theme: req.query.theme,
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/hourly', (req, res) => {
-    res.render('hourly', { 
+    res.render('hourly', {
         hourlyForecast: hourlyData,
         theme: req.query.theme,
         currentRoute: '/hourly'
