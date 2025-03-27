@@ -15,15 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    const themeIcon = document.querySelector('.theme-icon');
+    themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    const body = document.body;
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        body.classList.toggle('light');
-        const newTheme = body.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+        document.body.className = newTheme;
+        localStorage.setItem('theme', newTheme);
         themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        window.location.href = `${window.location.pathname}?theme=${newTheme}`;
     });
 
     const radarImg = document.querySelector('.radar-image');
