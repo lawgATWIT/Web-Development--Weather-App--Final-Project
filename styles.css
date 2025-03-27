@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #888; 
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.forecast-card {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.forecast-card div {
+    flex: 1; 
+    text-align: center;
+}
+
+.forecast-card.today {
+    border: 2px solid black; /* Add an outline for today's date */
+    padding: 5px; /* Optional: Add padding to make the outline more visible */
+}
+
+.weather-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+#weather-radar {
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+#weather-radar img {
+    max-width: 100%; 
+    height: auto; 
+    width: 100%; 
+}
+
+h2 {
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
+}
+.emergency-button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    background-color: red;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.emergency-button:hover {
+    background-color: darkred;
+}
