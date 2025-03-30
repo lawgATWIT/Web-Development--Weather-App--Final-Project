@@ -11,8 +11,15 @@ const forecastData = [
     { date: "04/05/2025", day: "Saturday", temperature: 63, description: "Cloud", icon: "/images/cloud.png" }
 ];
 
+// Helper function to convert military time to AM/PM
+function formatTimeToAMPM(hour) {
+    const period = hour >= 12 ? 'PM' : 'AM';
+    const formattedHour = hour % 12 || 12; // Convert 0 to 12 for midnight
+    return `${formattedHour}:00 ${period}`;
+}
+
 const hourlyData = Array.from({ length: 24 }, (_, i) => ({
-    hour: `${i.toString().padStart(2, '0')}:00`,
+    hour: formatTimeToAMPM(i),
     temperature: Math.floor(Math.random() * 20) + 50,
     condition: ['clear', 'cloud', 'rain', 'sun'][Math.floor(Math.random() * 4)]
 }));
