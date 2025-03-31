@@ -48,9 +48,17 @@ Full list available in `package.json`.
 
 4. **Start the server:**
 
-   ```
+   ```bash
    npm start
    ```
+
+   > **Note:** If you are using PowerShell and encounter a permission error while running the above command, you may need to enable the required execution policy. Run the following command in PowerShell:
+
+   ```bash
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
+
+   This allows scripts downloaded from the internet to run if they are signed by a trusted publisher. Make sure to only run trusted scripts.
 
 5. **Access the application:**
    - Open [http://localhost:3000](http://localhost:3000) in your browser.
