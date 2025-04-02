@@ -16,12 +16,6 @@ This is a simple web application that provides weather forecasts using data from
 - **[EJS](https://ejs.co/)**: Templating engine for HTML.  
 - **[Electron](https://www.electronjs.org/)**: Framework for building desktop apps.  
 
-## New Features
-
-- **Rounded Corners**: The Electron app now has rounded corners for a modern look.
-- **Exit Button**: An exit button is available in the top-right corner of all pages.
-- **Hidden Scrollbar**: The scrollbar is hidden but the page remains scrollable.
-
 ## How to Run
 
 ### Running as a Web App
