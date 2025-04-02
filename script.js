@@ -1,11 +1,11 @@
 const currentWeekDates = [
-    "04/01/2024", // Sunday
-    "04/02/2024", // Monday
-    "04/03/2024", // Tuesday
-    "04/04/2024", // Wednesday
-    "04/05/2024", // Thursday
-    "04/06/2024", // Friday
-    "04/07/2024"  // Saturday
+    "04/06/2024", // Sunday
+    "04/07/2024", // Monday
+    "04/08/2024", // Tuesday
+    "04/09/2024", // Wednesday
+    "04/10/2024", // Thursday
+    "04/11/2024", // Friday
+    "04/12/2024"  // Saturday
 ];
 
 const forecast = [
