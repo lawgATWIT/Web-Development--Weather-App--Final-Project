@@ -27,3 +27,10 @@ dist/
 *.tmp
 *.bak
 *.old
+
+# Exclude package-lock.json
+package-lock.json
+
+# Exclude macOS-specific files
+darwin/
+*.dylib

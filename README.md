@@ -83,4 +83,6 @@ This is a simple web application that provides weather forecasts using data from
 2. **Locate the built app:**
    - The built app will be available in the `dist/` directory.
 
+> **⚠️ Note:** You may need to modify the program or configuration files (e.g., `package.json` or `electron-builder` settings) to ensure compatibility with your specific system or platform.
+
 ---

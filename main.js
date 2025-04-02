@@ -16,7 +16,19 @@ app.on('ready', () => {
         frame: false, // Custom titlebar for the close button
         transparent: false, // Disable transparency for better UI stability
         roundedCorners: true, // Enable rounded corners
-        backgroundColor: '#ffffff' // Ensure no scrollbar visibility issue
+        backgroundColor: '#ffffff', // Ensure no scrollbar visibility issue
+        icon: path.join(__dirname, 'public', 'images', 'cloud.png') // Set the app icon
+    });
+
+    // Start the server
+    exec('npm run start:web', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error starting server: ${error}`);
+            return;
+        }
+        console.log(`Server started successfully`);
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
     });
 
     // Load the local server
