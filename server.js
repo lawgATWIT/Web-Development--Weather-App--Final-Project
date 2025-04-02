@@ -14,7 +14,7 @@ let server;
 
 function startServer(port) {
     server = app.listen(port, () => {
-        console.log(`Server running on port ${port}`);
+        console.log(`Server running on http://localhost:${port}`);
     }).on('error', (err) => {
         if (err.code === 'EADDRINUSE') {
             console.log(`Port ${port} is in use, trying ${port + 1}...`);

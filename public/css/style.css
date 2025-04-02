@@ -18,6 +18,11 @@
 body {
     font-family: 'Inter', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow: hidden; /* Hide scrollbar */
+}
+
+body:hover {
+    overflow: auto;
 }
 
 body.light {
@@ -30,6 +35,19 @@ body.dark {
     color: var(--dark-text);
 }
 
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(96, 165, 250, 0.5);
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(96, 165, 250, 0.8);
+}
+
 /* Header */
 .header {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -38,6 +56,7 @@ body.dark {
     position: sticky;
     top: 0;
     z-index: 100;
+    -webkit-app-region: drag; /* Makes the header draggable */
 }
 
 .navbar {
@@ -69,6 +88,7 @@ body.dark {
     display: flex;
     gap: 0.75rem;
     align-items: center;
+    -webkit-app-region: no-drag; /* Excludes buttons from drag region */
 }
 
 .nav-btn {
@@ -551,9 +571,28 @@ body.dark .info-card {
     .info-card h3 {
         font-size: 1rem;
     }
+}
 
-    .emergency-button {
-        font-size: 0.9rem;
-        padding: 0.8rem;
-    }
+/* Exit Button */
+.exit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-btn:hover {
+    background: rgba(255, 0, 0, 1);
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

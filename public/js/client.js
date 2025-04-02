@@ -69,4 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.forecast-card, .hourly-card, .info-card').forEach(el => {
         observer.observe(el);
     });
+
+    const exitButton = document.getElementById('exit-button');
+    if (exitButton) {
+        exitButton.addEventListener('click', () => {
+            window.close();
+        });
+    }
 });

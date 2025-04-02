@@ -1,68 +1,86 @@
 # Simple Weather Forecast Site
 
-This is a simple web application that provides weather forecasts using data from the OpenWeatherMap API. It is built with Node.js and Express, offering both a weekly forecast and an hourly forecast.
+This is a simple web application that provides weather forecasts using data from the OpenWeatherMap API. It is built with Node.js, Express, and Electron, offering both a weekly forecast and an hourly forecast.
 
 ## Project Structure
 
 - **`public/`**: Static assets (CSS, JavaScript, images).
-  - `css/`: Stylesheets.
-  - `js/`: Client-side scripts.
-  - `images/`: Image files.
 - **`views/`**: EJS templates for HTML rendering.
-  - `index.ejs`: Main page template.
-  - `hourly.ejs`: Hourly forecast template.
 - **`routes/`**: Route handlers.
-  - `index.js`: Defines application routes.
-- **`server.js`**: Entry point, sets up the Express server.
+- **`main.js`**: Electron entry point.
+- **`server.js`**: Express server entry point.
 
 ## Dependencies
 
 - **[Express](https://expressjs.com/)**: Web framework for Node.js.  
 - **[EJS](https://ejs.co/)**: Templating engine for HTML.  
-- **[node-fetch](https://www.npmjs.com/package/node-fetch)**: HTTP request module.  
+- **[Electron](https://www.electronjs.org/)**: Framework for building desktop apps.  
 
-Full list available in `package.json`.
+## New Features
+
+- **Rounded Corners**: The Electron app now has rounded corners for a modern look.
+- **Exit Button**: An exit button is available in the top-right corner of all pages.
+- **Hidden Scrollbar**: The scrollbar is hidden but the page remains scrollable.
 
 ## How to Run
 
-1. **Clone the repository:**
+### Running as a Web App
 
-   ```
-   git clone https://github.com/lawgATWIT/Web-Development--Weather-App--Final-Project.git
-   cd Web-Development--Weather-App--Final-Project
-   ```
+1. **Install dependencies:**
 
-2. **Install dependencies:**
-
-   ```
+   ```bash
    npm install
    ```
 
-3. **Set up API key:**
-   - Get an API key from OpenWeatherMap.  
+2. **Set up API key:**
+   - Obtain an API key from OpenWeatherMap.
    - Create a `.env` file in the root directory and add the following line:
 
-   ```
+   ```bash
    API_KEY=your_api_key_here
    ```
 
-4. **Start the server:**
+3. **Start the server:**
+
+   ```bash
+   npm run start:web
+   ```
+
+4. **Access the application:**
+   - Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Running as an Electron App
+
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Start the server:**
+
+   ```bash
+   npm run start:web
+   ```
+
+3. **Run the Electron app:**
 
    ```bash
    npm start
    ```
 
-   > **Note:** If you are using PowerShell and encounter a permission error while running the above command, you may need to enable the required execution policy. Run the following command in PowerShell:
+4. **Exit the app:**
+   - Use the ✖ button in the top-right corner of the app window.
+
+### Building the Electron App
+
+1. **Build the app:**
 
    ```bash
-   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   npm run build
    ```
 
-   This allows scripts downloaded from the internet to run if they are signed by a trusted publisher. Make sure to only run trusted scripts.
-
-5. **Access the application:**
-   - Open [http://localhost:3000](http://localhost:3000) in your browser.
+2. **Locate the built app:**
+   - The built app will be available in the `dist/` directory.
 
 ---
-
-Be sure to replace `your_api_key_here` with your actual OpenWeatherMap API key when creating the `.env` file.

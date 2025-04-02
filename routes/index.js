@@ -41,4 +41,9 @@ router.get('/hourly', (req, res) => {
     });
 });
 
+router.get('/exit', (req, res) => {
+    res.send('Shutting down server...');
+    process.exit(0);
+});
+
 module.exports = router;
